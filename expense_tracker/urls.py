@@ -16,12 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+
+API_VERSION = 'api/v1'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Authentication Endpoints
-    path('api/v1/auth/', include('dj_rest_auth.urls')),
-    path('api/v1/auth/registration/', include('dj_rest_auth.registration.urls')),
-    # path('accounts/', include('allauth.urls')),
+    path(f'{API_VERSION}/auth/', include('dj_rest_auth.urls')),
+    path(f'{API_VERSION}/auth/registration/', include('dj_rest_auth.registration.urls')),
+
+    # Other Endpoints
+    path(f'{API_VERSION}/', include('expenses.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns.append(path('api/auth/', include('rest_framework.urls')),)

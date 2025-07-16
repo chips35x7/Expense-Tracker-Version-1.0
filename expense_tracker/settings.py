@@ -21,6 +21,8 @@ from environs import Env
 env = Env()
 env.read_env()
 
+API_VERSION = 'api/v1'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,7 +42,9 @@ ALLOWED_HOSTS = ['.onrender.com', '192.168.43.40', 'localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    # My Apps
     'accounts.apps.AccountsConfig',
+    'expenses.apps.ExpensesConfig',
 
     # Default Django Apps
     'django.contrib.admin',
@@ -186,23 +190,39 @@ ACCOUNT_SIGNUP_FIELDS = ('email*', 'username', 'password1*', 'password2*',)
 ACCOUNT_LOGIN_METHODS = {'email',}
 ACCOUNT_UNIQUE_EMAIL = True
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'api/v1'
 
 # RestFramework Settings
+REST_AUTH = {
+    'USE_JWT': True,
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication' if DEBUG else '',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
-    'EXCEPTION_HANDLER': 'core.exception_handler.custom_exception_handler',
 }
+
+# REST_AUTH_TOKEN_MODEL = None
+
+if not DEBUG:
+    REST_FRAMEWORK.update({
+        'DEFAULT_RENDERER_CLASSES': [
+            'rest_framework.renderers.JSONRenderer',
+        ],
+        'EXCEPTION_HANDLER': 'core.exception_handler.custom_exception_handler',
+    })
 
 # SimpleJWT settings
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'AUTH_HEADER_TYPES': ('Bearer',),
 }
