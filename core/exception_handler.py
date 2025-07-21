@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 def custom_exception_handler(exc, context):
+    """A fallback function for handling the IntegrityError raised when email uniqueness contraint is violated"""
     if isinstance(exc, IntegrityError):
         return Response(
             {"email": ["A user with this email already exists."]},

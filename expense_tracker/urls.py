@@ -18,14 +18,20 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 
+from accounts.views import CustomEmailConfirmView
+
 API_VERSION = 'api/v1'
 
 urlpatterns = [
+    # Admin url path
     path('admin/', admin.site.urls),
 
     # Authentication Endpoints
     path(f'{API_VERSION}/auth/', include('dj_rest_auth.urls')),
     path(f'{API_VERSION}/auth/registration/', include('dj_rest_auth.registration.urls')),
+    
+    # Overiding the confirm email view that ships with allauth by default
+    path(f'{API_VERSION}/auth/registration/account-confirm-email/<key>', CustomEmailConfirmView.as_view(), name='account_confirm_email'),
 
     # Other Endpoints
     path(f'{API_VERSION}/', include('expenses.urls')),
