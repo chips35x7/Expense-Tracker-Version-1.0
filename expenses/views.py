@@ -10,3 +10,8 @@ class ExpenseList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         # return super().perform_create(serializer)
         serializer.save(user=self.request.user)
+
+
+class ExpenseDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ExpenseSerializer
+    queryset = Expense.objects.all()
