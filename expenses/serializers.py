@@ -10,5 +10,6 @@ class ExpenseSerializer(serializers.ModelSerializer):
             'category',
             'amount',
             'description',
-            'date_created',
+            'created',
+            'updated'
             )

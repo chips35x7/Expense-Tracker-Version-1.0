@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'expenses.apps.ExpensesConfig',
 
     # Default Django Apps
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.sites',
     'django.contrib.auth',
@@ -187,8 +188,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 SITE_ID = 1
 
-# ACCOUNT_USERNAME_REQUIRED = False
-# ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_FIELDS = ('email*', 'username', 'password1*', 'password2*',)
 ACCOUNT_LOGIN_METHODS = {'email',}
@@ -229,4 +228,23 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
+JAZZMIN_SETTINGS = {
+    'site_title': 'Nigey\'s Expense Tracker',
+    'site_header': 'Nigey\'s Expense Tracker',
+
+    'site_brand': 'Expense Tracker',
+
+    # Logo to use for your site, must be present in static files, used for brand on top left
+    'site_logo': 'logo.ico',
+
+    'login_logo': 'logo.ico',
+    'login_logo_dark': 'logo.ico',
+
+    'copyright': 'Nigel Chiputura',
+
+    'topmenu_links': [
+        {'app': 'Expense Tracker'}
+    ],
 }
