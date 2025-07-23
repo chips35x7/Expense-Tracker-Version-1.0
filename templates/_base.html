@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,12 +10,19 @@
         {% block title %}
         {% endblock %}
     </title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
     {% block content %}
     {% endblock %}
+    <footer class="footer">
+        <p>
+            <span>&copy; <time id="year"></time></span>
+            <span class="nowrap">Nigel Chiputura | All Rights Reserved</span>
+        </p>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>

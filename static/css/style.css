@@ -1,0 +1,85 @@
+/* // CSS Reset // */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+/* // End Reset // */
+
+/* // Variables // */
+:root {
+    /* Colors  */
+    --PRIMARY-COLOR: #1e1e2e;
+    --SECONDARY-COLOR: #2A2A40;
+    --TEXT-COLOR: whitesmoke;
+    --BACKGROUND: linear-gradient(to right, var(--PRIMARY-COLOR), var(--SECONDARY-COLOR));
+
+    /* Font*/
+    --FF: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;;
+    --FS: clamp(0.8rem, 2.2vh, 1.5rem);
+
+    /* General */
+    --PADDING: 1rem;
+    --SHADOW: 0px 5px 5px #000;
+}
+
+/* // General Styles // */
+body {
+    font-family: var(--FF);
+    font-size: var(--FS);
+    text-align: center;
+    color: var(--TEXT-COLOR);
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+/* // Block // */
+.email-confirm {
+    max-width: 800px;
+    min-height: 400px;
+    background: var(--BACKGROUND);
+    padding: var(--PADDING);
+    box-shadow: var(--SHADOW);
+}
+
+/* // Elements // */
+.email-confirm__header {
+    margin-bottom: 2rem;
+}
+
+.email-confirm__h1 {
+    text-shadow: var(--SHADOW);
+}
+
+.email-confirm__figure {
+    max-width: 10rem;
+    height: auto;
+    margin: auto;
+}
+
+.email-confirm p {
+    line-height: 2;
+}
+
+/* // Footer // */
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: var(--PADDING);
+    background-color: var(--PRIMARY-COLOR);
+}

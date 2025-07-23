@@ -239,9 +239,9 @@ JAZZMIN_SETTINGS = {
     'site_title': 'Nigey\'s Expense Tracker',
     'site_header': 'Nigey\'s Expense Tracker',
     'site_brand': 'Expense Tracker',
-    'site_logo': 'logo.ico',
-    'login_logo': 'logo.ico',
-    'login_logo_dark': 'logo.ico',
+    'site_logo': 'images/logo.ico',
+    'login_logo': 'images/logo.ico',
+    'login_logo_dark': 'images/logo.ico',
     'copyright': 'Nigel Chiputura',
     'topmenu_links': [
         {'app': 'Expense Tracker'}
