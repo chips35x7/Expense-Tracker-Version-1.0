@@ -212,6 +212,7 @@ REST_FRAMEWORK = {
 
 # REST_AUTH_TOKEN_MODEL = None
 
+# Removing the Browsable API and adding exception handler for duplicate emails when in production 
 if not DEBUG:
     REST_FRAMEWORK.update({
         'DEFAULT_RENDERER_CLASSES': [
@@ -230,20 +231,16 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
+# Customizing the admin via Jazzmin
+
 JAZZMIN_SETTINGS = {
     'site_title': 'Nigey\'s Expense Tracker',
     'site_header': 'Nigey\'s Expense Tracker',
-
     'site_brand': 'Expense Tracker',
-
-    # Logo to use for your site, must be present in static files, used for brand on top left
     'site_logo': 'logo.ico',
-
     'login_logo': 'logo.ico',
     'login_logo_dark': 'logo.ico',
-
     'copyright': 'Nigel Chiputura',
-
     'topmenu_links': [
         {'app': 'Expense Tracker'}
     ],

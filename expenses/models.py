@@ -5,6 +5,7 @@ import uuid
 
 
 class Expense(models.Model):
+    """The model for user expenses"""
     class ExpenseCategories(models.TextChoices):
         FOOD = 'FD', 'Food'
         TRANSPORT = 'TRNSPT', 'Transport'
@@ -35,6 +36,7 @@ class Expense(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
+        """Providing default sorting and indexing for faster queries on the 'created' database field"""
         ordering = ['-created']
         indexes = [
             models.Index(fields=['created'])

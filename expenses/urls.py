@@ -1,8 +1,8 @@
-from django.urls import path
+from rest_framework import routers
+from .views import ExpenseViewSet
 
-from .views import *
+# Generating URLs for the list and detail endpoints
+router = routers.SimpleRouter()
+router.register('', ExpenseViewSet, basename='expenses')
 
-urlpatterns = [
-    path('', ExpenseList.as_view()),
-    path('<uuid:pk>', ExpenseDetail.as_view()),
-]
+urlpatterns = router.urls

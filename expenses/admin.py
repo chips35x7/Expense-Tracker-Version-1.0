@@ -5,6 +5,7 @@ from .models import Expense
 
 @admin.register(Expense)
 class ExpenseAdmin(admin.ModelAdmin):
+    """Customizing the admin"""
     list_display = ['user', 'category', 'amount', 'created', 'updated']
     list_filter = ['category', 'created', 'updated']
     date_hierarchy = 'created'

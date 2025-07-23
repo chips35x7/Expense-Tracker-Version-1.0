@@ -37,5 +37,6 @@ urlpatterns = [
     path(f'{API_VERSION}/', include('expenses.urls')),
 ]
 
+# Using browser based session authentication in development 
 if settings.DEBUG:
     urlpatterns.append(path('api/auth/', include('rest_framework.urls')),)
