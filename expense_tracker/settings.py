@@ -202,8 +202,7 @@ REST_AUTH = {
 }
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication' if DEBUG else '',
+     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
@@ -213,6 +212,13 @@ REST_FRAMEWORK = {
 }
 
 # REST_AUTH_TOKEN_MODEL = None
+
+if DEBUG:
+    REST_FRAMEWORK.update({
+        'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        )
+    })
 
 # Removing the Browsable API and adding exception handler for duplicate emails when in production 
 if not DEBUG:
