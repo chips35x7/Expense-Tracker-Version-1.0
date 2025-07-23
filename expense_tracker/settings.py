@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'drf_spectacular',
 
     # 3rd Party Apps
     'rest_framework',
@@ -208,6 +209,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 # REST_AUTH_TOKEN_MODEL = None
@@ -244,4 +246,12 @@ JAZZMIN_SETTINGS = {
     'topmenu_links': [
         {'app': 'Expense Tracker'}
     ],
+}
+
+# drf-spectacular settings
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Nigey\'s Expense Tracker API',
+    'DESCRIPTION': 'An API for managing your expenses',
+    'VERSION': '1.0.0',
 }

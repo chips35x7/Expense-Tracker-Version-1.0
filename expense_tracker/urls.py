@@ -18,6 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 
+from drf_spectacular.views import (
+    SpectacularAPIView,
+    SpectacularRedocView,
+    SpectacularSwaggerView
+    )
+
 from accounts.views import CustomEmailConfirmView
 
 API_VERSION = 'api/v1'
@@ -35,6 +41,10 @@ urlpatterns = [
 
     # Other Endpoints
     path(f'{API_VERSION}/', include('expenses.urls')),
+
+    # Schema and documentation endpoints
+    path('api/schema', SpectacularAPIView.as_view(), name='schema'),
+    
 ]
 
 # Using browser based session authentication in development 
