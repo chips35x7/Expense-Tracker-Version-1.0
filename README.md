@@ -42,8 +42,10 @@ Track every coin. Stay on top of your finances with this secure, verified, and s
 
 1. User registers with email
 2. Verification email is sent
-3. After verification, user can log in and access protected endpoints
-4. JWT access/refresh tokens are returned
+3. <img width="1920" height="918" alt="email-confirmation-html" src="https://github.com/user-attachments/assets/d8e439e0-be5c-42e8-9f2b-e40f681c3d0b" />
+
+4. After verification, user can log in and access protected endpoints
+5. JWT access/refresh tokens are returned
 
 ---
 
