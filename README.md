@@ -114,6 +114,7 @@ Bearer your_access_token
 ## 📚 API Documentation
 
 This API follows the OpenAPI 3.0 specification, powered by `drf-spectacular`.
+Use This As the Base URL -->  https://nigeys-expense-tracker.onrender.com
 
 - 🔹 **Swagger UI**  
   👉 [`/api/schema/swagger-ui/`](https://your-api.onrender.com/api/schema/swagger/)
