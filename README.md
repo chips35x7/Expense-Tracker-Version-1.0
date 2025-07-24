@@ -59,7 +59,7 @@ Track every coin. Stay on top of your finances with this secure, verified, and s
 
 ```bash
 git clone https://github.com/chips35x7/Expense-Tracker-Version-1.0.git
-cd expense-tracker
+cd expense_tracker
 
 📦 Install dependencies
 pip install -r requirements.txt
